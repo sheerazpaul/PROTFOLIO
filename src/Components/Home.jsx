@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import My_Profile from "../My_profile.json";
+import Profile from "../Profile.json";
 import { FaMapMarkerAlt, FaGithub, FaLinkedin,} from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
 import { IoArrowDownCircleSharp } from "react-icons/io5";
 
 const Home = () => {
-  const { personal,  socialLinks } = My_Profile;
+  const { personal,  socialLinks } = Profile;
 
   const [typedName, setTypedName] = useState("");
   const [typedRole, setTypedRole] = useState("");

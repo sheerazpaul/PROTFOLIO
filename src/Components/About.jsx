@@ -1,9 +1,9 @@
 import React from "react";
-import My_Profile from "../My_profile.json";
+import Profile from "../Profile.json";
 import { FaUserGraduate, FaBriefcase, FaUser } from "react-icons/fa";
 
 const About = () => {
-  const { about, education, experience } = My_Profile;
+  const { about, education, experience } = Profile;
 
   return (
     <section className="bg-black w-full  text-white px-4 sm:px-6 md:px-20 py-5 sm:py-5">

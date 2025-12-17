@@ -1,7 +1,7 @@
 import React from "react";
-import My_Profile from "../My_Profile.json";
+import Profile from "../Profile.json";
 const Experience = () => {
-  const experience = My_Profile["Work Experience"];
+  const experience = Profile["Work Experience"];
   return (
     <section
       id="experience"

@@ -1,9 +1,9 @@
 import React from "react";
-import My_Profile from "../My_profile.json";
+import Profile from "../Profile.json";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 function Contact() {
-  const { contact } = My_Profile;
+  const { contact } = Profile;
 
   if (!contact) return null;
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import My_profile from "../My_profile.json";
+import profile from "../Profile.json";
 import { FaJs, FaReact, FaGit, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiHtml5, SiPostman, SiVercel } from "react-icons/si";
 import { BsBootstrapFill } from "react-icons/bs";
@@ -22,7 +22,7 @@ const iconMap = {
 };
 
 function Skills() {
-  const { skills } = My_profile;
+  const { skills } = profile;
   const [activeTab, setActiveTab] = useState("frontend");
 
   const currentSkills = activeTab === "frontend" ? skills.frontend : skills.tools;

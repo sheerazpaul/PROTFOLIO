@@ -1,8 +1,8 @@
 import React from "react";
-import My_Profile from "../My_Profile.json";
+import Profile from "../Profile.json";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const Projects = () => {
-  const projects = My_Profile.ProjectsLink;
+  const projects = Profile.ProjectsLink;
   return (
     <section
       id="projects"
