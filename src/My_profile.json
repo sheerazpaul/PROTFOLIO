@@ -1,0 +1,124 @@
+{
+  "header": {
+    "title": "Welcome to my portfolio",
+    "subtitle": "Frontend Developer"
+  },
+
+  "personal": {
+    "name": "Sheeraz Paul",
+    "role": "Frontend Developer",
+    "specialization": "Creating Beautiful Web Experiences",
+    "location": "Pakistan",
+    "email": "sheerazpaulp@gmail.com",
+    "phone": "+92 315 1088177",
+    "profileImage": "/images/img 2.jpg",
+    "ctaText": "Building digital experiences that make a difference"
+  },
+
+   "about": {
+    "title": "About Me",
+    "description": "I am a passionate Frontend Developer with experience in building web applications using modern technologies like React, Tailwind CSS, and more. I love creating clean and user-friendly interfaces. "
+  },
+    "experience": [
+    {
+      "company": "UMEGS",
+      "role": "Frontend Developer",
+      "duration": "2025 - Present",
+      "description": "Worked on building reusable React components, API integration and responsive layouts."
+    }
+  ],
+    "education": [
+    {
+      "degree": "ICS",
+      "institute": "Royal College",
+      "duration": "2023 - 2024"
+    }
+  ],
+
+  "skills": {
+    "frontend": [
+      { "name": "JavaScript", "icon": "js" },
+      { "name": "React", "icon": "react" },
+      { "name": "Tailwind CSS", "icon": "tailwind" },
+      { "name": "HTML5", "icon": "html" },
+     { "name": "Bootstrap", "icon": "bootstrap" },
+       { "name": "CSS", "icon": "css" }
+    ],
+    "tools": [
+      { "name": "Postman", "icon": "postman" },
+      { "name": "Git", "icon": "git" },
+      { "name": "GitHub", "icon": "github" },
+      { "name": "Vercel", "icon": "vercel" },
+      { "name": "VS Code", "icon": "vscode" },
+         { "name": "Figma", "icon": "figma" }
+    ]
+  },
+
+  "projects": [
+    {
+      "title": "Portfolio Website",
+      "description": "Personal portfolio website built with React and Tailwind CSS.",
+      "tech": ["React", "Tailwind", "Vercel"],
+      "liveUrl": "https://vercel.com/sheerazpauls-projects",
+      "githubUrl": "https://github.com/sheerazpaul"
+    }
+  ],
+     "ProjectsLink" : [
+    {
+      "title": "EV Route",
+      "url": "https://ev-route-lge2.vercel.app/",
+      "img": "/images/img 1.png"
+    },
+    {
+      "title": "MDST Landing Page",
+      "url": "https://mdst-market-react.vercel.app/home",
+      "img": "/images/img 3.png"
+    },
+    {
+      "title": "Movie App",
+      "url": "https://movie-app-23.vercel.app/",
+      "img": "/images/img 5.png"
+    },
+    {
+      "title": "Shopify",
+      "url": "",
+      "img": "/images/img 4.png"
+    }
+  ],
+  "Work Experience": [
+    {
+      "role": "Frontend Developer",
+      "duration": "2025 - Present",
+      "company": "UMEGS",
+      "AboutCompany": "UMEGS is a tech company focused on delivering innovative web solutions to clients worldwide.",
+      "responsibilities": [
+        "Developed and maintained web applications using React and Tailwind CSS.",
+        "Collaborated with designers to implement responsive UI designs.",
+        "Optimized application performance and ensured cross-browser compatibility."
+      ],
+      "achievements": [
+        "Successfully launched 5+ client projects with positive feedback.",
+        "Improved application load times by 30% through code optimization."
+      ],
+      "description": "Worked on building reusable React components, API integration and responsive layouts and collaborated with cross-functional teams to deliver high-quality web applications on time. Participated in code reviews and contributed to improving development processes."
+    }
+  ],
+  "contact": {
+    "email": "sheerazpaulp@gmail.com",
+    "phone": "+92 315 1088177",
+    "location": "Gujranwala, Pakistan",
+    "text": "© 2025 Sheeraz Paul. All rights reserved."
+  },
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/sheerazpaul"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/sheerazpaul"
+    }
+  ]
+}
