@@ -71,7 +71,7 @@
     },
     {
       "title": "MDST Landing Page",
-      "url": "https://mdst-market-react.vercel.app/home",
+      "url": "https://mdst-market-react.vercel.app/",
       "img": "/images/img 3.png"
     },
     {
@@ -80,9 +80,9 @@
       "img": "/images/img 5.png"
     },
     {
-      "title": "Shopify",
-      "url": "",
-      "img": "/images/img 4.png"
+      "title": "Calculator",
+      "url": "https://calculator-tawny-tau.vercel.app/",
+      "img": "/images/img 6.png"
     }
   ],
   "Work Experience": [

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 function Button({ name, target }) {
   const handleClick = () => {
     const section = document.getElementById(target);
@@ -10,7 +11,7 @@ function Button({ name, target }) {
   return (
     <button
       onClick={handleClick}
-      className="text-white font-medium hover:text-[#4eb1c5] transition hover:scale-105"
+      className="text-black hover:underline transition-all text-sm font-medium"
     >
       {name}
     </button>

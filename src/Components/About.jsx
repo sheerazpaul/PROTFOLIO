@@ -1,72 +1,188 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Profile from "../Profile.json";
-import { FaUserGraduate, FaBriefcase, FaUser } from "react-icons/fa";
+import { Award, Code, Briefcase, GraduationCap } from "lucide-react";
 
-const About = () => {
-  const { about, education, experience } = Profile;
+const ProfileSection = () => {
+  const { about, education, experience, personal, skills } = Profile;
+  const workExperience = Profile["Work Experience"][0];
+  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+
+  const fadeInUp = {
+    hidden: { y: 60, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.6 }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
   return (
-    <section className="bg-black w-full  text-white px-4 sm:px-6 md:px-20 py-5 sm:py-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-        <div>
-          <div className="flex items-center gap-3 mb-4 sm:mb-6">
-            <FaUser className="text-[#4eb1c5] text-3xl sm:text-4xl" />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4eb1c5] ">
-              {about.title}
-            </h1>
-          </div>
-          <p className="text-white text-base sm:text-lg md:text-lg leading-relaxed mb-4">
-            {about.description}
-          </p>
-        </div>
+    <motion.section
+      ref={ref}
+      id="profile"
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={staggerContainer}
+      className="py-24 px-6 md:px-12 bg-white"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <motion.div variants={fadeInUp} className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-[#14B8A6]/10 text-[#14B8A6] rounded-full text-sm font-medium mb-4">
+            ABOUT ME
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            Who is <span className="text-[#14B8A6]">Sheeraz Paul</span>
+          </h2>
+        </motion.div>
 
-        <div className="space-y-8 sm:space-y-12">
-          <div>
-            <div className="flex items-center gap-3 mb-4 sm:mb-6 ">
-              <FaUserGraduate className="text-[#4eb1c5] text-2xl sm:text-3xl" />
-              <h2 className="text-2xl sm:text-3xl font-semibold text-[#4eb1c5]">
-                Education
-              </h2>
-            </div>
-            {education.map((edu, index) => (
-              <div
-                key={index}
-                className="mb-4 sm:mb-6 p-4 sm:p-6 rounded-2xl bg-black/20 border border-[#4eb1c5]/30 transition hover:scale-105"
-              >
-                <h3 className="text-lg sm:text-xl font-medium text-white">{edu.degree}</h3>
-                <p className="text-white">{edu.institute}</p>
-                <span className="text-sm sm:text-base text-white">{edu.duration}</span>
+        {/* About Grid */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Left Column - Bio */}
+          <motion.div variants={fadeInUp} className="lg:col-span-1">
+            <div className="bg-gray-50 rounded-2xl p-6 h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#14B8A6]/10 flex items-center justify-center">
+                  <Code className="text-[#14B8A6]" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Bio</h3>
               </div>
-            ))}
-          </div>
+              <p className="text-gray-600 leading-relaxed">
+                {about.description}
+              </p>
+              
+              <div className="mt-8 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                    <GraduationCap className="text-[#14B8A6]" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Education</p>
+                    <p className="font-medium">{education[0]?.degree} - {education[0]?.institute}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                    <Briefcase className="text-[#14B8A6]" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Current Role</p>
+                    <p className="font-medium">{workExperience?.role} at {workExperience?.company}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                    <Award className="text-[#14B8A6]" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Experience</p>
+                    <p className="font-medium">1+ Years</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-       
-          <div>
-            <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <FaBriefcase className="text-[#4eb1c5] text-2xl sm:text-3xl" />
-              <h2 className="text-2xl sm:text-3xl font-semibold text-[#4eb1c5]">
-                Experience
-              </h2>
-            </div>
-            {experience.map((exp, index) => (
-              <div
-                key={index}
-                className="mb-4 sm:mb-6 p-4 sm:p-6 rounded-2xl bg-black/20 border border-[#4eb1c5]/30 transition hover:scale-105"
-              >
-                <h3 className="text-lg sm:text-xl font-medium text-white">{exp.role}</h3>
-                <p className="text-white">{exp.company}</p>
-                <span className="text-sm sm:text-base text-white">{exp.duration}</span>
-                <p className="mt-2 sm:mt-3 text-white text-sm sm:text-base leading-relaxed">
-                  {exp.description ||
-                    "Worked on multiple projects, contributing to frontend development and UI design, ensuring high-quality and responsive applications."}
-                </p>
+          {/* Right Column - Experience & Skills */}
+          <motion.div variants={fadeInUp} className="lg:col-span-2">
+            {/* Current Role */}
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Current Position</h3>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#14B8A6]/10 flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="text-[#14B8A6]" size={24} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900">{workExperience?.role}</h4>
+                  <p className="text-[#14B8A6] font-medium">{workExperience?.company}</p>
+                  <p className="text-gray-500 text-sm mt-1">{workExperience?.duration}</p>
+                  <p className="text-gray-600 mt-3">{workExperience?.description}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+
+            {/* Responsibilities & Achievements */}
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                    <span className="text-[#14B8A6] text-xs">✓</span>
+                  </div>
+                  Responsibilities
+                </h4>
+                <ul className="space-y-2">
+                  {workExperience?.responsibilities.map((item, i) => (
+                    <li key={i} className="text-gray-600 text-sm flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6] mt-1.5"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                    <span className="text-[#14B8A6] text-xs">🏆</span>
+                  </div>
+                  Achievements
+                </h4>
+                <ul className="space-y-2">
+                  {workExperience?.achievements.map((item, i) => (
+                    <li key={i} className="text-gray-600 text-sm flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6] mt-1.5"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Skills */}
+            <div className="bg-white rounded-2xl border border-gray-200 p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Skills & Expertise</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-sm text-gray-500 mb-3">FRONTEND</p>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.frontend.map((skill, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-[#14B8A6]/10 text-[#14B8A6] rounded-lg text-sm">
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-3">TOOLS</p>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.tools.map((skill, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm">
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
-export default About;
+export default ProfileSection;
