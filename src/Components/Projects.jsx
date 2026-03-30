@@ -34,18 +34,18 @@ const Projects = () => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={staggerContainer}
-      className="py-24 px-6 md:px-12 bg-gray-50"
+      className="px-6 py-24 md:px-12 bg-gray-50"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <motion.div variants={fadeInUp} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#14B8A6]/10 text-[#14B8A6] rounded-full text-sm font-medium mb-4">
+        <motion.div variants={fadeInUp} className="mb-16 text-center">
+          <span className="inline-block px-6 py-2 bg-[#14B8A6]/10 text-[#14B8A6] rounded-full text-sm font-medium mb-4">
             MY WORK
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
             Featured <span className="text-[#14B8A6]">Projects</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+          <p className="max-w-2xl mx-auto mt-4 text-gray-600">
             Here are some of my recent projects that showcase my skills and experience in frontend development.
           </p>
         </motion.div>
@@ -53,24 +53,24 @@ const Projects = () => {
         {/* Projects Grid */}
         <motion.div 
           variants={staggerContainer}
-          className="grid md:grid-cols-2 gap-8"
+          className="grid gap-8 md:grid-cols-2"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
               whileHover={{ y: -10 }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="overflow-hidden transition-all duration-300 bg-white shadow-lg group rounded-2xl hover:shadow-2xl"
             >
               <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:opacity-100" />
                 
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute flex gap-2 transition-opacity duration-300 opacity-0 top-4 right-4 group-hover:opacity-100">
                   <a
                     href={project.url}
                     target="_blank"
@@ -91,10 +91,10 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="mb-2 text-2xl font-bold text-gray-900">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="mb-4 text-gray-600">
                   A modern web project built with React and Tailwind CSS featuring responsive design and clean UI.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -131,7 +131,7 @@ const Projects = () => {
         </motion.div>
 
         {/* View All Button */}
-        <motion.div variants={fadeInUp} className="text-center mt-16">
+        <motion.div variants={fadeInUp} className="mt-16 text-center">
           <a
             href="https://github.com/sheerazpaul"
             target="_blank"

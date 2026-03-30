@@ -21,12 +21,12 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 pt-32" id="home">
+    <div className="min-h-screen pt-32 bg-gradient-to-br from-white to-gray-50" id="home">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="max-w-7xl mx-auto px-6 md:px-12"
+        className="px-6 mx-auto max-w-7xl md:px-12"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Column - Text Content */}
@@ -42,13 +42,13 @@ const Home = () => {
               </span>
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold leading-tight">
+            <motion.h1 variants={fadeInUp} className="text-5xl font-bold leading-tight md:text-7xl">
               <span className="text-[#14B8A6]">Creative</span>
               <br />
               Design Experience
             </motion.h1>
 
-            <motion.p variants={fadeInUp} className="text-xl text-gray-600 max-w-lg">
+            <motion.p variants={fadeInUp} className="max-w-lg text-xl text-gray-600">
               {personal.role} based in {personal.location} with a passion for creating beautiful web experiences.
             </motion.p>
 
@@ -76,18 +76,7 @@ const Home = () => {
 
             {/* Stats Mini */}
             <motion.div variants={fadeInUp} className="flex gap-8 pt-8">
-              <div>
-                <p className="text-3xl font-bold text-[#14B8A6]">80+</p>
-                <p className="text-gray-500">Clients</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-[#14B8A6]">200+</p>
-                <p className="text-gray-500">Projects</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-[#14B8A6]">99+</p>
-                <p className="text-gray-500">Reviews</p>
-              </div>
+            
             </motion.div>
           </motion.div>
 
@@ -98,22 +87,19 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
+            <div className="p-8 ">
               <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0D9488] p-1 mb-4">
+                <div className="w-60 h-60 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0D9488] p-1 mb-4">
                   <img
                     src={personal.profileImage}
                     alt={personal.name}
-                    className="w-full h-full rounded-full object-cover border-4 border-white"
+                    className="object-cover w-full h-full border-4 border-white rounded-full"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">{personal.name}</h3>
-                <p className="text-[#14B8A6] font-medium mt-1">{personal.role}</p>
-                <p className="text-gray-500 text-sm mt-4">{personal.ctaText}</p>
-                
-                <div className="w-full h-px bg-gray-200 my-6"></div>
-                
-                <div className="flex gap-4">
+                <h3 className="mt-2 text-2xl font-bold text-gray-900">{personal.name}</h3>
+                <p className="text-[#14B8A6] font-medium mt-2">{personal.role}</p>
+                <p className="mt-4 text-sm text-gray-500">{personal.ctaText}</p>
+                <div className="flex gap-4 mt-4">
                   <a href="https://github.com/sheerazpaul" target="_blank" rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#14B8A6] hover:text-white transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.58 0-.287-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.39-1.335-1.76-1.335-1.76-1.09-.746.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.306.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.3-.535-1.52.117-3.16 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.653 1.64.24 2.86.118 3.16.768.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.62-5.476 5.92.43.37.824 1.1.824 2.22 0 1.6-.015 2.89-.015 3.28 0 .32.216.7.83.58C20.565 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>

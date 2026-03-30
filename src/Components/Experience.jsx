@@ -19,13 +19,13 @@ const Experience = () => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={fadeInUp}
-      className="py-32 px-6 md:px-12 bg-white border-t border-black"
+      className="px-6 py-32 bg-white border-t border-black md:px-12"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         <div className="grid-12">
           {/* Title */}
           <div className="col-span-12 mb-16">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
+            <h2 className="text-5xl font-bold tracking-tighter md:text-7xl">
               EXPERIENCE
             </h2>
           </div>
@@ -35,21 +35,21 @@ const Experience = () => {
             <div key={index} className="col-span-12 mb-16 last:mb-0">
               <div className="grid-12">
                 {/* Left column - role & company */}
-                <div className="col-span-12 md:col-span-4 mb-4 md:mb-0">
+                <div className="col-span-12 mb-4 md:col-span-4 md:mb-0">
                   <h3 className="text-xl font-medium">{item.role}</h3>
-                  <p className="text-gray-600 mt-1">{item.company}</p>
-                  <p className="text-gray-500 text-sm mt-1">{item.duration}</p>
+                  <p className="mt-1 text-gray-600">{item.company}</p>
+                  <p className="mt-1 text-sm text-gray-500">{item.duration}</p>
                 </div>
 
                 {/* Right column - description */}
                 <div className="col-span-12 md:col-span-7 md:col-start-6">
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="mb-6 leading-relaxed text-gray-700">
                     {item.description}
                   </p>
                   
                   {/* Responsibilities - simple list */}
                   <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Responsibilities:</p>
+                    <p className="mb-2 text-sm font-medium">Responsibilities:</p>
                     <ul className="space-y-1">
                       {item.responsibilities.map((res, i) => (
                         <li key={i} className="text-sm text-gray-600">
@@ -61,7 +61,7 @@ const Experience = () => {
 
                   {/* Achievements - simple list */}
                   <div>
-                    <p className="text-sm font-medium mb-2">Achievements:</p>
+                    <p className="mb-2 text-sm font-medium">Achievements:</p>
                     <ul className="space-y-1">
                       {item.achievements.map((ach, i) => (
                         <li key={i} className="text-sm text-gray-600">
