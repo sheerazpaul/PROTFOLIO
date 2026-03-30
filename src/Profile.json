@@ -42,7 +42,10 @@
       { "name": "Tailwind CSS", "icon": "tailwind" },
       { "name": "HTML5", "icon": "html" },
      { "name": "Bootstrap", "icon": "bootstrap" },
-       { "name": "CSS", "icon": "css" }
+       { "name": "CSS", "icon": "css" },
+       {"name":"PYTHON","icon":"python"},
+       {"name":"FLASK","icon":"flask"},
+       {"name":"SQL","icon":"sql"}
     ],
     "tools": [
       { "name": "Postman", "icon": "postman" },
@@ -50,7 +53,8 @@
       { "name": "GitHub", "icon": "github" },
       { "name": "Vercel", "icon": "vercel" },
       { "name": "VS Code", "icon": "vscode" },
-         { "name": "Figma", "icon": "figma" }
+         { "name": "Figma", "icon": "figma" },
+         {"name":"Stitch","icon":"stitch"}
     ]
   },
 
@@ -83,7 +87,18 @@
       "title": "Calculator",
       "url": "https://calculator-tawny-tau.vercel.app/",
       "img": "/images/img 6.png"
+    },
+     {
+      "title": "Cenmorsel",
+      "url": "https://cinemorsel-uh6e.vercel.app/",
+      "img": "/images/img 8.png"
+    },
+    {
+      "title": "Currency Converter",
+      "url": "https://currency-convertor-omega-three.vercel.app/",
+      "img": "/images/img 9.png"
     }
+    
   ],
   "Work Experience": [
     {
