@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import contact from "../Profile.json";
-import emailjs from "@emailjs/browser";
 
 /* =========================
    Stat Counter Component
@@ -50,32 +49,7 @@ const Stats = () => {
 
   const [loading, setLoading] = useState(false);
 
-  /* =========================
-     Email Send Function
-  ========================= */
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setLoading(true);
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",   // 🔴 replace
-        "YOUR_TEMPLATE_ID",  // 🔴 replace
-        formRef.current,
-        "YOUR_PUBLIC_KEY"    // 🔴 replace
-      )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          formRef.current.reset();
-          setLoading(false);
-        },
-        () => {
-          alert("❌ Failed to send message. Try again.");
-          setLoading(false);
-        }
-      );
-  };
 
   /* =========================
      Animations
@@ -100,11 +74,13 @@ const Stats = () => {
   return (
     <motion.section
       ref={ref}
+      id="contact"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="px-4 py-24 bg-gradient-to-br from-gray-50 to-white"
+      className="px-4 py-24 bg-dark relative overflow-hidden"
     >
+      <div className="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[120px] pointer-events-none" />
       <div className="max-w-6xl mx-auto">
 
         {/* Why Hire Me */}
@@ -113,19 +89,12 @@ const Stats = () => {
           className="grid items-center gap-12 mb-24"
         >
           <div>
-            <h3 className="mb-6 text-3xl font-bold text-center text-gray-900 md:text-4xl">
-              Why Hire Me For Your Next Project?
+            <h3 className="mb-6 text-3xl font-bold text-center text-white md:text-4xl">
+              Why Hire Me For Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Next Project?</span>
             </h3>
 
-            <p className="text-xl leading-relaxed text-gray-600">
-              The best way to get started on your next project is to hire me. I
-              have 1 year of experience as a frontend developer and have worked
-              on several projects that helped businesses improve their online
-              presence. I’m a creative and detail-oriented developer who is
-              passionate about building clean, responsive, and user-friendly
-              interfaces. I focus on delivering results and ensuring a great
-              user experience. I’m confident that I can help you create an
-              effective and visually appealing frontend for your business.
+            <p className="text-xl leading-relaxed text-softGray text-center">
+              I build scalable, high-performance applications that bridge the gap between seamless user experiences and robust backend architectures. With a strong foundation in modern frameworks like React and powerful backend technologies like Python and Django, I don't just write code—I solve complex business problems. Whether it's architecting a secure API from scratch, optimizing database queries, or crafting pixel-perfect interactive UIs, I bring a product-first mindset to every engineering challenge. I'm driven by continuous learning and am ready to make an immediate impact on your team.
             </p>
           </div>
         </motion.div>
@@ -133,53 +102,53 @@ const Stats = () => {
         {/* Contact Section */}
         <motion.div
           variants={itemVariants}
-          className="p-8 bg-white shadow-xl rounded-2xl md:p-12"
+          className="p-8 bg-card-glass border border-white/10 backdrop-blur-md shadow-xl rounded-2xl md:p-12 relative z-10"
         >
           <div className="grid gap-12 md:grid-cols-2">
 
             {/* Left Info */}
             <div>
-              <h3 className="mb-4 text-3xl font-bold text-gray-900">
+              <h3 className="mb-4 text-3xl font-bold text-white">
                 Let's Discuss Your Project
               </h3>
 
-              <p className="mb-8 text-gray-600">
+              <p className="mb-8 text-softGray">
                 Fill the form and I’ll contact you soon.
               </p>
 
               <div className="space-y-4">
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     📧
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <a href={`mailto:${contact.email}`} className="text-gray-900">
+                    <p className="text-sm text-softGray">Email</p>
+                    <a href={`mailto:${contact.email}`} className="text-white hover:text-primary transition-colors">
                       {contact.email}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     📱
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Phone</p>
-                    <a href={`tel:${contact.phone}`} className="text-gray-900">
+                    <p className="text-sm text-softGray">Phone</p>
+                    <a href={`tel:${contact.phone}`} className="text-white hover:text-primary transition-colors">
                       {contact.phone}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#14B8A6]/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     📍
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Location</p>
-                    <p className="text-gray-900">{contact.location}</p>
+                    <p className="text-sm text-softGray">Location</p>
+                    <p className="text-white">{contact.location}</p>
                   </div>
                 </div>
 
@@ -187,21 +156,25 @@ const Stats = () => {
             </div>
 
             {/* Form */}
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+            <form action={`https://formsubmit.co/${contact.email}`} method="POST" className="space-y-6">
+              {/* FormSubmit Configuration */}
+              <input type="hidden" name="_subject" value="New message from portfolio!" />
+              <input type="hidden" name="_captcha" value="false" />
+              
               <input
                 type="text"
-                name="user_name"
+                name="name"
                 required
                 placeholder="Your Name"
-                className="w-full px-4 py-3 border rounded-lg"
+                className="w-full px-4 py-3 bg-dark/50 border border-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-softGray/50"
               />
 
               <input
                 type="email"
-                name="user_email"
+                name="email"
                 required
                 placeholder="Your Email"
-                className="w-full px-4 py-3 border rounded-lg"
+                className="w-full px-4 py-3 bg-dark/50 border border-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-softGray/50"
               />
 
               <textarea
@@ -209,15 +182,14 @@ const Stats = () => {
                 rows="4"
                 required
                 placeholder="Project Details..."
-                className="w-full px-4 py-3 border rounded-lg"
+                className="w-full px-4 py-3 bg-dark/50 border border-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-softGray/50 resize-none"
               />
 
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full px-6 py-3 bg-[#14B8A6] text-white rounded-lg hover:bg-[#0D9488]"
+                className="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold tracking-wide hover:opacity-90 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] transform hover:-translate-y-1"
               >
-                {loading ? "Sending..." : "Send Message"}
+                Send Message
               </button>
 
             </form>

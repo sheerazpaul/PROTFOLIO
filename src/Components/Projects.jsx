@@ -34,19 +34,24 @@ const Projects = () => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={staggerContainer}
-      className="px-6 py-24 md:px-12 bg-gray-50"
+      className="px-6 py-24 md:px-12 bg-dark relative overflow-hidden"
     >
+      <motion.div 
+        animate={{ x: [0, 20, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }} 
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[30%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none" 
+      />
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div variants={fadeInUp} className="mb-16 text-center">
-          <span className="inline-block px-6 py-2 bg-[#14B8A6]/10 text-[#14B8A6] rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-6 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-medium mb-4">
             MY WORK
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
-            Featured <span className="text-[#14B8A6]">Projects</span>
+          <h2 className="text-4xl font-bold text-white md:text-5xl">
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Projects</span>
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-gray-600">
-            Here are some of my recent projects that showcase my skills and experience in frontend development.
+          <p className="max-w-2xl mx-auto mt-4 text-softGray">
+            Here are some of my recent projects that showcase my skills and experience in full stack development.
           </p>
         </motion.div>
 
@@ -60,7 +65,7 @@ const Projects = () => {
               key={index}
               variants={fadeInUp}
               whileHover={{ y: -10 }}
-              className="overflow-hidden transition-all duration-300 bg-white shadow-lg group rounded-2xl hover:shadow-2xl"
+              className="overflow-hidden transition-all duration-300 bg-card-glass border border-white/10 backdrop-blur-md shadow-lg group rounded-2xl hover:shadow-[0_0_30px_rgba(20,184,166,0.3)] hover:border-primary/50"
             >
               <div className="relative h-56 overflow-hidden">
                 <img
@@ -75,7 +80,7 @@ const Projects = () => {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-700 hover:bg-[#14B8A6] hover:text-white transition-all"
+                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all shadow-lg border border-white/20"
                   >
                     <ExternalLink size={18} />
                   </a>
@@ -83,7 +88,7 @@ const Projects = () => {
                     href="https://github.com/sheerazpaul"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-700 hover:bg-[#14B8A6] hover:text-white transition-all"
+                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all shadow-lg border border-white/20"
                   >
                     <Github size={18} />
                   </a>
@@ -91,17 +96,17 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="mb-2 text-2xl font-bold text-gray-900">
+                <h3 className="mb-2 text-2xl font-bold text-white">
                   {project.title}
                 </h3>
-                <p className="mb-4 text-gray-600">
-                  A modern web project built with React and Tailwind CSS featuring responsive design and clean UI.
+                <p className="mb-4 text-softGray">
+                  {project.description || "A modern web project featuring responsive design, clean UI, and robust performance."}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["React", "Tailwind", "Vercel"].map((tech, i) => (
+                  {(project.tech || ["React", "Tailwind", "Vercel"]).map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 text-xs rounded-full bg-[#14B8A6]/10 text-[#14B8A6]"
+                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
                     >
                       {tech}
                     </span>
@@ -112,7 +117,7 @@ const Projects = () => {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#14B8A6] font-medium hover:underline flex items-center gap-1"
+                    className="text-primary font-medium hover:text-secondary flex items-center gap-1 transition-colors"
                   >
                     Live Demo <ExternalLink size={14} />
                   </a>
@@ -120,7 +125,7 @@ const Projects = () => {
                     href="https://github.com/sheerazpaul"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 font-medium hover:text-[#14B8A6] flex items-center gap-1"
+                    className="text-softGray font-medium hover:text-primary flex items-center gap-1 transition-colors"
                   >
                     Source <Github size={14} />
                   </a>
@@ -137,8 +142,8 @@ const Projects = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <button className="px-8 py-4 bg-[#14B8A6] text-white rounded-xl font-medium
-              hover:bg-[#0D9488] transition-colors shadow-lg shadow-[#14B8A6]/30">
+            <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-bold tracking-wide
+              hover:opacity-90 transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] transform hover:-translate-y-1">
               View All Projects on GitHub
             </button>
           </a>

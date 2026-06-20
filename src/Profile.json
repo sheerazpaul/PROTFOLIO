@@ -1,30 +1,30 @@
 {
   "header": {
-    "title": "Welcome to my portfolio",
-    "subtitle": "Frontend Developer"
+    "title": "Sheeraz Paul",
+    "subtitle": "Full Stack Developer"
   },
 
   "personal": {
     "name": "Sheeraz Paul",
-    "role": "Frontend Developer",
-    "specialization": "Creating Beautiful Web Experiences",
+    "role": "Full Stack Developer",
+    "specialization": "Architecting Scalable Web Applications",
     "location": "Pakistan",
     "email": "sheerazpaulp@gmail.com",
     "phone": "+92 315 1088177",
     "profileImage": "/images/img 2.jpg",
-    "ctaText": "Building digital experiences that make a difference"
+    "ctaText": "Delivering high-performance software solutions that drive business value."
   },
 
    "about": {
     "title": "About Me",
-    "description": "I am a passionate Frontend Developer with experience in building web applications using modern technologies like React, Tailwind CSS, and more. I love creating clean and user-friendly interfaces. "
+    "description": "I am a Full Stack Developer specializing in building robust, scalable web applications. With expertise in modern frontend frameworks like React and powerful backend architectures using Python and Django, I focus on writing clean, maintainable code to deliver seamless user experiences and efficient data processing pipelines."
   },
     "experience": [
     {
       "company": "UMEGS",
-      "role": "Frontend Developer",
+      "role": "Full Stack Developer",
       "duration": "2025 - Present",
-      "description": "Worked on building reusable React components, API integration and responsive layouts."
+      "description": "Engineered scalable frontend architectures, integrated complex REST APIs, and optimized application performance for diverse web solutions."
     }
   ],
     "education": [
@@ -41,11 +41,20 @@
       { "name": "React", "icon": "react" },
       { "name": "Tailwind CSS", "icon": "tailwind" },
       { "name": "HTML5", "icon": "html" },
-     { "name": "Bootstrap", "icon": "bootstrap" },
-       { "name": "CSS", "icon": "css" },
-       {"name":"PYTHON","icon":"python"},
-       {"name":"FLASK","icon":"flask"},
-       {"name":"SQL","icon":"sql"}
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Redux", "icon": "redux" },
+      { "name": "React Query", "icon": "reactquery" }
+    ],
+    "backend": [
+      { "name": "Python", "icon": "python" },
+      { "name": "Django", "icon": "django" },
+      { "name": "Django REST", "icon": "django" },
+      { "name": "Flask", "icon": "flask" },
+      { "name": "GraphQL", "icon": "graphql" },
+      { "name": "REST APIs", "icon": "api" },
+      { "name": "MySQL", "icon": "sql" },
+      { "name": "OOP", "icon": "code" }
     ],
     "tools": [
       { "name": "Postman", "icon": "postman" },
@@ -53,8 +62,9 @@
       { "name": "GitHub", "icon": "github" },
       { "name": "Vercel", "icon": "vercel" },
       { "name": "VS Code", "icon": "vscode" },
-         { "name": "Figma", "icon": "figma" },
-         {"name":"Stitch","icon":"stitch"}
+      { "name": "Figma", "icon": "figma" },
+      { "name": "Stitch", "icon": "stitch" },
+      { "name": "Linux", "icon": "linux" }
     ]
   },
 
@@ -71,51 +81,63 @@
     {
       "title": "EV Route",
       "url": "https://ev-route-lge2.vercel.app/",
-      "img": "/images/img 1.png"
+      "img": "/images/img 1.png",
+      "description": "A mapping and navigation application tailored for Electric Vehicles, locating charging stations efficiently.",
+      "tech": ["React", "Google Maps API", "Tailwind CSS"]
     },
     {
       "title": "MDST Landing Page",
       "url": "https://mdst-market-react.vercel.app/",
-      "img": "/images/img 3.png"
+      "img": "/images/img 3.png",
+      "description": "High-performance marketing landing page with complex animations and optimized assets for maximum conversion.",
+      "tech": ["React", "Framer Motion", "Tailwind CSS"]
     },
     {
       "title": "Movie App",
       "url": "https://movie-app-23.vercel.app/",
-      "img": "/images/img 5.png"
+      "img": "/images/img 5.png",
+      "description": "A cinematic discovery platform fetching real-time movie data from the TMDB database.",
+      "tech": ["React", "REST API", "Tailwind CSS"]
     },
     {
       "title": "Calculator",
       "url": "https://calculator-tawny-tau.vercel.app/",
-      "img": "/images/img 6.png"
+      "img": "/images/img 6.png",
+      "description": "A sleek, responsive calculator app featuring a modern glassmorphism UI.",
+      "tech": ["React", "CSS3", "JavaScript"]
     },
      {
       "title": "Cenmorsel",
       "url": "https://cinemorsel-uh6e.vercel.app/",
-      "img": "/images/img 8.png"
+      "img": "/images/img 8.png",
+      "description": "A modern review and ratings platform for cinephiles with dynamic content generation.",
+      "tech": ["React", "Python", "Django"]
     },
     {
       "title": "Currency Converter",
       "url": "https://currency-convertor-omega-three.vercel.app/",
-      "img": "/images/img 9.png"
+      "img": "/images/img 9.png",
+      "description": "Real-time exchange rate calculator integrating live financial APIs.",
+      "tech": ["React", "Financial API", "Tailwind CSS"]
     }
     
   ],
   "Work Experience": [
     {
-      "role": "Frontend Developer",
+      "role": "Full Stack Developer",
       "duration": "2025 - Present",
       "company": "UMEGS",
-      "AboutCompany": "UMEGS is a tech company focused on delivering innovative web solutions to clients worldwide.",
+      "AboutCompany": "UMEGS is a technology firm focused on delivering enterprise-grade web solutions and digital transformation services.",
       "responsibilities": [
-        "Developed and maintained web applications using React and Tailwind CSS.",
-        "Collaborated with designers to implement responsive UI designs.",
-        "Optimized application performance and ensured cross-browser compatibility."
+        "Architected and maintained scalable web applications using React and Django.",
+        "Engineered robust REST API integrations and optimized database query performance.",
+        "Collaborated with cross-functional teams to implement responsive, high-performance UI components."
       ],
       "achievements": [
-        "Successfully launched 5+ client projects with positive feedback.",
-        "Improved application load times by 30% through code optimization."
+        "Successfully delivered 5+ complex client projects, ensuring high code quality and test coverage.",
+        "Decreased initial application load times by 30% through advanced asset optimization and code splitting."
       ],
-      "description": "Worked on building reusable React components, API integration and responsive layouts and collaborated with cross-functional teams to deliver high-quality web applications on time. Participated in code reviews and contributed to improving development processes."
+      "description": "Spearheaded the development of scalable full-stack features and engineered robust API integrations. Collaborated closely with cross-functional teams to ensure high-quality software delivery, while actively participating in code reviews to establish and maintain engineering best practices."
     }
   ],
   "contact": {
