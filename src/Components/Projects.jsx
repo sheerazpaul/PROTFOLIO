@@ -45,13 +45,13 @@ const Projects = () => {
         {/* Section Header */}
         <motion.div variants={fadeInUp} className="mb-16 text-center">
           <span className="inline-block px-6 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-medium mb-4">
-            MY WORK
+            PORTFOLIO
           </span>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Projects</span>
+          <h2 className="text-4xl font-bold text-text md:text-5xl">
+            Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Projects</span>
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-softGray">
-            Here are some of my recent projects that showcase my skills and experience in full stack development.
+            Real-world applications built with modern technologies — from interactive UIs to full-stack platforms.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ const Projects = () => {
               key={index}
               variants={fadeInUp}
               whileHover={{ y: -10 }}
-              className="overflow-hidden transition-all duration-300 bg-card-glass border border-white/10 backdrop-blur-md shadow-lg group rounded-2xl hover:shadow-[0_0_30px_rgba(20,184,166,0.3)] hover:border-primary/50"
+              className="overflow-hidden transition-all duration-300 bg-card-glass border border-border backdrop-blur-md shadow-lg group rounded-2xl hover:shadow-[0_0_30px_rgba(20,184,166,0.3)] hover:border-primary/50"
             >
               <div className="relative h-56 overflow-hidden">
                 <img
@@ -80,7 +80,7 @@ const Projects = () => {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all shadow-lg border border-white/20"
+                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-text hover:bg-primary hover:text-white transition-all shadow-lg border border-border"
                   >
                     <ExternalLink size={18} />
                   </a>
@@ -88,7 +88,7 @@ const Projects = () => {
                     href="https://github.com/sheerazpaul"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary hover:text-white transition-all shadow-lg border border-white/20"
+                    className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center text-text hover:bg-primary hover:text-white transition-all shadow-lg border border-border"
                   >
                     <Github size={18} />
                   </a>
@@ -96,21 +96,35 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="mb-2 text-2xl font-bold text-white">
+                <h3 className="mb-2 text-2xl font-bold text-text">
                   {project.title}
                 </h3>
                 <p className="mb-4 text-softGray">
                   {project.description || "A modern web project featuring responsive design, clean UI, and robust performance."}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {(project.tech || ["React", "Tailwind", "Vercel"]).map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {(project.tech || ["React", "Tailwind", "Vercel"]).map((tech, i) => {
+                    const dotColor = {
+                      React: "bg-cyan-400",
+                      "Tailwind CSS": "bg-sky-400",
+                      "Google Maps API": "bg-green-400",
+                      "Framer Motion": "bg-pink-400",
+                      "REST API": "bg-amber-400",
+                      "Python": "bg-blue-400",
+                      "Django": "bg-emerald-400",
+                      "Financial API": "bg-violet-400",
+                      "CSS3": "bg-orange-400",
+                    }[tech] || "bg-primary";
+                    return (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
+                        {tech}
+                      </span>
+                    );
+                  })}
                 </div>
                 <div className="flex gap-4">
                   <a

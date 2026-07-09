@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheeraz Paul — Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      padding: 48px 48px 40px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .header h1 span { color: #14b8a6; }
+    .header .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .header-contact {
+      text-align: right;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #cbd5e1;
+      white-space: nowrap;
+    }
+    .header-contact a {
+      color: #14b8a6;
+      text-decoration: none;
+    }
+    .header-contact a:hover { text-decoration: underline; }
+    .body { display: grid; grid-template-columns: 1fr 2fr; gap: 0; }
+    .sidebar {
+      background: #f8fafc;
+      padding: 36px 32px;
+      border-right: 1px solid #e2e8f0;
+    }
+    .main { padding: 36px 40px; }
+    .section { margin-bottom: 28px; }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #14b8a6;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .sidebar .section-title { border-bottom-color: #cbd5e1; }
+
+    /* Summary */
+    .summary { font-size: 14px; color: #334155; line-height: 1.7; margin-bottom: 4px; }
+
+    /* Skills */
+    .skill-group { margin-bottom: 20px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+    .skill-item { margin-bottom: 10px; }
+    .skill-item:last-child { margin-bottom: 0; }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+    .skill-header span:last-child { color: #64748b; font-weight: 400; }
+    .skill-bar {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #14b8a6, #2dd4bf);
+    }
+
+    /* Experience */
+    .exp-item { margin-bottom: 20px; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .exp-role { font-size: 16px; font-weight: 700; color: #0f172a; }
+    .exp-company { font-size: 14px; font-weight: 600; color: #14b8a6; margin-top: 1px; }
+    .exp-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .exp-desc { font-size: 13px; color: #475569; margin-top: 6px; line-height: 1.6; }
+    .exp-list { margin-top: 8px; padding-left: 16px; }
+    .exp-list li {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 12px; }
+    .edu-degree { font-size: 14px; font-weight: 600; color: #0f172a; }
+    .edu-school { font-size: 13px; color: #475569; }
+    .edu-date { font-size: 12px; color: #64748b; }
+
+    /* Projects */
+    .project-item { margin-bottom: 14px; }
+    .project-title { font-size: 14px; font-weight: 600; color: #0f172a; }
+    .project-tech {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #14b8a6;
+      background: #f0fdfa;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 2px;
+    }
+    .project-desc { font-size: 13px; color: #475569; margin-top: 2px; line-height: 1.5; }
+
+    /* Contact sidebar */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #334155;
+      margin-bottom: 10px;
+    }
+    .contact-item a { color: #14b8a6; text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      background: #e2e8f0;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 13px;
+    }
+
+    .social-links { margin-top: 16px; }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #14b8a6;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+    .social-links a:hover { text-decoration: underline; }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .skill-bar-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .project-tech { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section { page-break-inside: avoid; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 16px; }
+      .header { padding: 32px 24px; }
+      .header-inner { flex-direction: column; }
+      .header-contact { text-align: left; white-space: normal; }
+      .body { grid-template-columns: 1fr; }
+      .sidebar { border-right: 0; border-bottom: 1px solid #e2e8f0; }
+      .main { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-inner">
+        <div>
+          <h1>Sheeraz <span>Paul</span></h1>
+          <div class="title">Full Stack Developer</div>
+        </div>
+        <div class="header-contact">
+          Pakistan<br>
+          <a href="tel:+923151088177">+92 315 1088177</a><br>
+          <a href="mailto:sheerazpaulp@gmail.com">sheerazpaulp@gmail.com</a><br>
+          <a href="https://linkedin.com/in/sheerazpaul" target="_blank">linkedin.com/in/sheerazpaul</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="body">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Contact -->
+        <div class="section">
+          <div class="section-title">Contact</div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <span>Gujranwala, Pakistan</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <a href="mailto:sheerazpaulp@gmail.com">sheerazpaulp@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <a href="tel:+923151088177">+92 315 1088177</a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/sheerazpaul" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/sheerazpaul" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+          <div class="section-title">Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Frontend</div>
+            <div class="skill-item">
+              <div class="skill-header"><span>JavaScript</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>React</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Tailwind CSS</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>HTML5 / CSS</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Redux / React Query</span><span>72%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:72%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Backend</div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Python</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Django / Django REST</span><span>82%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>REST APIs / GraphQL</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>MySQL / OOP</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Tools</div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Git / GitHub</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>VS Code / Postman</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>Vercel / Linux</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+          <div class="section-title">Languages</div>
+          <div class="contact-item" style="margin-bottom:4px">
+            <span style="font-weight:600;font-size:13px">English</span>
+            <span style="font-size:13px;color:#64748b">— Professional Working</span>
+          </div>
+          <div class="contact-item">
+            <span style="font-weight:600;font-size:13px">Urdu</span>
+            <span style="font-size:13px;color:#64748b">— Native</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main">
+        <!-- Summary -->
+        <div class="section">
+          <div class="section-title">Professional Summary</div>
+          <p class="summary">
+            Full Stack Developer with 1+ year of experience architecting and delivering production-grade web applications. Specialize in React-driven frontends and Django-powered backends with a strong focus on clean architecture, API design, and performance optimization. Proven track record of shipping 5+ client projects and reducing load times by 30% through advanced optimization techniques.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+          <div class="section-title">Experience</div>
+          <div class="exp-item">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Full Stack Developer</div>
+                <div class="exp-company">UMEGS</div>
+              </div>
+              <div class="exp-date">2025 — Present</div>
+            </div>
+            <p class="exp-desc">
+              Delivered end-to-end full-stack features across 5+ client projects — from React frontends to Django REST APIs. Collaborated with cross-functional teams, participated in code reviews, and maintained high code quality standards.
+            </p>
+            <ul class="exp-list">
+              <li>Architected and maintained scalable web applications using React and Django, serving diverse client requirements.</li>
+              <li>Engineered robust REST API integrations and optimized database query performance for faster data delivery.</li>
+              <li>Decreased initial application load times by 30% through advanced asset optimization, lazy loading, and code splitting.</li>
+              <li>Collaborated with cross-functional teams to implement responsive, high-performance UI components.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+          <div class="section-title">Featured Projects</div>
+
+          <div class="project-item">
+            <div class="project-title">EV Route</div>
+            <div class="project-tech">React • Google Maps API • Tailwind CSS</div>
+            <div class="project-desc">
+              A mapping and navigation application tailored for Electric Vehicles, integrating real-time charging station locations and route optimization.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Cinemorsel</div>
+            <div class="project-tech">React • Python • Django</div>
+            <div class="project-desc">
+              A modern review and ratings platform for cinephiles with dynamic content generation, user authentication, and RESTful API backend.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">MDST Landing Page</div>
+            <div class="project-tech">React • Framer Motion • Tailwind CSS</div>
+            <div class="project-desc">
+              High-performance marketing landing page with complex animations, optimized assets, and a focus on conversion-driven design.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Movie Discovery App</div>
+            <div class="project-tech">React • REST API • Tailwind CSS</div>
+            <div class="project-desc">
+              A cinematic discovery platform fetching real-time movie data from the TMDB database with search, filtering, and responsive UI.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Currency Converter</div>
+            <div class="project-tech">React • Financial API • Tailwind CSS</div>
+            <div class="project-desc">
+              Real-time exchange rate calculator integrating live financial APIs with a clean, intuitive interface.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

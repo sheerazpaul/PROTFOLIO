@@ -48,8 +48,8 @@ const ProfileSection = () => {
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-medium mb-4">
             ABOUT ME
           </span>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
-            Who is <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sheeraz Paul</span>
+          <h2 className="text-4xl font-bold text-text md:text-5xl">
+            Full Stack Developer &bull; <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Problem Solver</span>
           </h2>
         </motion.div>
 
@@ -57,12 +57,12 @@ const ProfileSection = () => {
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Left Column - Bio */}
           <motion.div variants={fadeInUp} className="lg:col-span-1">
-            <div className="h-full p-6 bg-card-glass border border-white/10 rounded-2xl shadow-xl backdrop-blur-md">
+            <div className="h-full p-6 bg-card-glass border border-border rounded-2xl shadow-xl backdrop-blur-md">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Code className="text-primary" size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-white">Bio</h3>
+                <h3 className="text-xl font-bold text-text">Bio</h3>
               </div>
               <p className="leading-relaxed text-softGray">
                 {about.description}
@@ -75,7 +75,7 @@ const ProfileSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-softGray">Current Role</p>
-                    <p className="font-medium text-white">{workExperience?.role} at {workExperience?.company}</p>
+                    <p className="font-medium text-text">{workExperience?.role} at {workExperience?.company}</p>
                   </div>
                 </div>
                 
@@ -85,7 +85,7 @@ const ProfileSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-softGray">Experience</p>
-                    <p className="font-medium text-white">1+ Years</p>
+                    <p className="font-medium text-text">1+ Years</p>
                   </div>
                 </div>
               </div>
@@ -95,14 +95,14 @@ const ProfileSection = () => {
           {/* Right Column - Experience & Skills */}
           <motion.div variants={fadeInUp} className="lg:col-span-2">
             {/* Current Role */}
-            <div className="p-6 mb-6 bg-card-glass border border-white/10 rounded-2xl shadow-lg backdrop-blur-md">
-              <h3 className="mb-4 text-xl font-bold text-white">Current Position</h3>
+            <div className="p-6 mb-6 bg-card-glass border border-border rounded-2xl shadow-lg backdrop-blur-md">
+              <h3 className="mb-4 text-xl font-bold text-text">Current Position</h3>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Briefcase className="text-primary" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white">{workExperience?.role}</h4>
+                  <h4 className="text-lg font-bold text-text">{workExperience?.role}</h4>
                   <p className="text-primary font-medium">{workExperience?.company}</p>
                   <p className="mt-1 text-sm text-softGray">{workExperience?.duration}</p>
                   <p className="mt-3 text-softGray leading-relaxed">{workExperience?.description}</p>
@@ -112,8 +112,8 @@ const ProfileSection = () => {
 
             {/* Responsibilities & Achievements */}
             <div className="grid gap-6 mb-6 md:grid-cols-2">
-              <div className="p-6 bg-card-glass border border-white/5 rounded-2xl backdrop-blur-md">
-                <h4 className="flex items-center gap-2 mb-4 font-bold text-white">
+              <div className="p-6 bg-card-glass border border-border rounded-2xl backdrop-blur-md">
+                <h4 className="flex items-center gap-2 mb-4 font-bold text-text">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                     <span className="text-primary text-xs">✓</span>
                   </div>
@@ -129,8 +129,8 @@ const ProfileSection = () => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-card-glass border border-white/5 rounded-2xl backdrop-blur-md">
-                <h4 className="flex items-center gap-2 mb-4 font-bold text-white">
+              <div className="p-6 bg-card-glass border border-border rounded-2xl backdrop-blur-md">
+                <h4 className="flex items-center gap-2 mb-4 font-bold text-text">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                     <span className="text-primary text-xs">🏆</span>
                   </div>
@@ -148,39 +148,38 @@ const ProfileSection = () => {
             </div>
 
             {/* Skills */}
-            <div className="p-6 bg-card-glass border border-white/10 rounded-2xl shadow-lg backdrop-blur-md">
-              <h3 className="mb-6 text-xl font-bold text-white">Skills & Expertise</h3>
-              <div className="grid gap-6 md:grid-cols-3">
-                <div>
-                  <p className="mb-3 text-sm text-softGray font-semibold tracking-wider">FRONTEND</p>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.frontend.map((skill, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-lg text-sm">
-                        {skill.name}
-                      </span>
-                    ))}
+            <div className="p-6 bg-card-glass border border-border rounded-2xl shadow-lg backdrop-blur-md">
+              <h3 className="mb-6 text-xl font-bold text-text">Skills & Expertise</h3>
+              <div className="grid gap-8 md:grid-cols-3">
+                {[
+                  { title: "FRONTEND", items: skills.frontend, textClass: "text-primary", barClass: "bg-primary" },
+                  { title: "BACKEND", items: skills.backend, textClass: "text-secondary", barClass: "bg-secondary" },
+                  { title: "TOOLS", items: skills.tools, textClass: "text-text", barClass: "bg-text" },
+                ].map((group) => (
+                  <div key={group.title}>
+                    <p className="mb-4 text-sm text-softGray font-semibold tracking-wider">{group.title}</p>
+                    <div className="space-y-3">
+                      {group.items.map((skill, i) => (
+                        <div key={i}>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className={`text-sm font-medium ${group.textClass}`}>{skill.name}</span>
+                            {skill.level && (
+                              <span className="text-xs text-softGray">{skill.level}%</span>
+                            )}
+                          </div>
+                          <div className="w-full h-1.5 bg-dark rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={inView ? { width: `${skill.level || 80}%` } : { width: 0 }}
+                              transition={{ duration: 1, delay: i * 0.1, ease: "easeOut" }}
+                              className={`h-full rounded-full ${group.barClass}`}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="mb-3 text-sm text-softGray font-semibold tracking-wider">BACKEND</p>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.backend.map((skill, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-secondary/10 text-secondary border border-secondary/20 rounded-lg text-sm">
-                        {skill.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <p className="mb-3 text-sm text-softGray font-semibold tracking-wider">TOOLS</p>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.tools.map((skill, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-white/5 text-white border border-white/10 rounded-lg text-sm">
-                        {skill.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.div>
