@@ -24,14 +24,14 @@
     {
       "company": "UMEGS",
       "role": "Front End Developer",
-      "duration": "2018 - 2024",
+      "duration": " 2025",
       "description": "Built and maintained responsive, high-performance web interfaces for enterprise clients. Collaborated with design and backend teams to deliver pixel-perfect UI components and seamless user experiences."
     },
     {
       "company": "UMEGS",
       "role": "Full Stack Developer",
       "isBusiness": true,
-      "duration": "2024 - Present",
+      "duration": "2025- Present",
       "description": "Architected and shipped 5+ production web applications using React, Django, and RESTful APIs. Reduced initial load times by 30% through code splitting and asset optimization."
     }
   ],

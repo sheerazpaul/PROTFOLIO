@@ -19,7 +19,7 @@ const PageOne = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="inline-block px-4 py-2 text-sm font-medium border rounded-full bg-primary/10 text-primary border-primary/20"
+                className="inline-block px-4 py-2 mt-3 text-sm font-medium border rounded-full bg-primary/10 text-primary border-primary/20"
               >
                 WELCOME TO MY PORTFOLIO
               </motion.span>
@@ -75,7 +75,7 @@ const PageOne = () => {
               >
                 {[
                   { value: "1+", label: "Years Exp" },
-                  { value: "6+", label: "Projects" },
+                  { value: "+10", label: "Projects" },
                   { value: "8+", label: "Technologies" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
@@ -126,20 +126,7 @@ const PageOne = () => {
             {/* Left: Profile Image */}
             <div className="flex justify-center lg:col-span-5">
               <div className="relative group">
-                <div className="absolute border rounded-full -inset-4 bg-card-glass border-border animate-pulse opacity-30" />
-                <div className="relative w-64 h-64 p-2 border rounded-full md:w-80 md:h-80 bg-card-glass border-border backdrop-blur-md">
-                  <div className="w-full h-full overflow-hidden rounded-full bg-dark">
-                    <img
-                      src={personal.profileImage}
-                      alt={personal.name}
-                      className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-card-glass border border-border backdrop-blur-md px-5 py-2.5 rounded-2xl flex items-center gap-2.5">
-                  <span className="w-2.5 h-2.5 bg-primary rounded-full animate-ping" />
-                  <span className="text-xs font-semibold text-text">6+ Years Exp</span>
-                </div>
+               
               </div>
             </div>
 
