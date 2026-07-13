@@ -114,13 +114,6 @@
       "description": "A sleek, responsive calculator app featuring a modern glassmorphism UI.",
       "tech": ["React", "CSS3", "JavaScript"]
     },
-     {
-      "title": "Cenimorsel",
-      "url": "https://cinemorsel-uh6e.vercel.app/",
-      "img": "/images/img 8.png",
-      "description": "A modern review and ratings platform for cinephiles with dynamic content generation.",
-      "tech": ["React", "Python", "Django"]
-    },
     {
       "title": "Currency Converter",
       "url": "https://currency-convertor-omega-three.vercel.app/",

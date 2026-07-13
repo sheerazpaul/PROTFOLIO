@@ -8,7 +8,7 @@ const PageOne = () => {
 
   return (
     <div className="min-h-full overflow-y-auto">
-      <div className="relative flex flex-col justify-center min-h-screen px-6 md:px-12">
+      <div className="relative flex flex-col justify-center min-h-screen px-6 md:px-12 pt-16">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/10 blur-[120px] pointer-events-none" />
 
