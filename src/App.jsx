@@ -2,22 +2,19 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "./Components/ThemeContext";
 import Navbar from "./Components/Navbar";
-import Home from "./Components/Home";
-import Projects from "./Components/Projects.jsx";
-import Stats from "./Components/Stats_Data.jsx";
-import GitHubStats from "./Components/GitHubStats.jsx";
-import About from "./Components/About.jsx";
-import Blog from "./Components/Blog.jsx";
-import Footer from "./Components/Footer.jsx";
-import Resume from "./Components/Resume.jsx";
+import PageOne from "./Components/PageOne";
+import PageTwo from "./Components/PageTwo";
+import PageThree from "./Components/PageThree";
+import PageFour from "./Components/PageFour";
+import Resume from "./Components/Resume";
 import "./index.css";
 
 function App() {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("portfolio");
 
   useEffect(() => {
     const handleHash = () => {
-      setPage(window.location.hash === "#resume" ? "resume" : "home");
+      setPage(window.location.hash === "#resume" ? "resume" : "portfolio");
     };
     handleHash();
     window.addEventListener("hashchange", handleHash);
@@ -35,17 +32,13 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="bg-dark min-h-screen relative overflow-hidden bg-grid"
+            className="bg-dark min-h-screen relative bg-grid"
           >
             <Navbar />
-            <Home />
-            <Projects/>
-            <GitHubStats />
-            <Stats />
-            <About/>
-            <Blog />
-            <Footer />
+            <PageOne />
+            <PageTwo />
+            <PageThree />
+            <PageFour />
           </motion.div>
         )}
       </AnimatePresence>

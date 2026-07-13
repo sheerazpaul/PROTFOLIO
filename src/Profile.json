@@ -23,8 +23,15 @@
     "experience": [
     {
       "company": "UMEGS",
+      "role": "Front End Developer",
+      "duration": "2018 - 2024",
+      "description": "Built and maintained responsive, high-performance web interfaces for enterprise clients. Collaborated with design and backend teams to deliver pixel-perfect UI components and seamless user experiences."
+    },
+    {
+      "company": "UMEGS",
       "role": "Full Stack Developer",
-      "duration": "2025 - Present",
+      "isBusiness": true,
+      "duration": "2024 - Present",
       "description": "Architected and shipped 5+ production web applications using React, Django, and RESTful APIs. Reduced initial load times by 30% through code splitting and asset optimization."
     }
   ],
@@ -55,7 +62,8 @@
       { "name": "GraphQL", "icon": "graphql", "level": 65 },
       { "name": "REST APIs", "icon": "api", "level": 88 },
       { "name": "MySQL", "icon": "sql", "level": 78 },
-      { "name": "OOP", "icon": "code", "level": 85 }
+      { "name": "OOP", "icon": "code", "level": 85 },
+      { "name": "DataGrip", "icon": "code", "level": 85 }
     ],
     "tools": [
       { "name": "Postman", "icon": "postman", "level": 85 },
@@ -107,7 +115,7 @@
       "tech": ["React", "CSS3", "JavaScript"]
     },
      {
-      "title": "Cenmorsel",
+      "title": "Cenimorsel",
       "url": "https://cinemorsel-uh6e.vercel.app/",
       "img": "/images/img 8.png",
       "description": "A modern review and ratings platform for cinephiles with dynamic content generation.",
@@ -119,10 +127,56 @@
       "img": "/images/img 9.png",
       "description": "Real-time exchange rate calculator integrating live financial APIs.",
       "tech": ["React", "Financial API", "Tailwind CSS"]
+    },
+     {
+      "title": "WorkFlow",
+      "url": "https://workflow-delta-two.vercel.app/",
+      "img": "/images/Workflow.png",
+      "description": "A streamlined workflow management tool for teams to collaborate and track project progress.",
+      "tech": ["React", "Node.js", "REST API","Tailwind CSS"]
+    },
+     {
+      "title": "Veltrix",
+      "url": "https://veltrix-9mh5-sigma.vercel.app/",
+      "img": "/images/Veltrix.png",
+      "description": "A premium brand landing page featuring modern glassmorphism UI, smooth scroll animations, and a fully responsive layout optimized for conversion.",
+      "tech": ["React", "Node.js", "REST API","Tailwind CSS","Framer Motion"]
+    },
+     {
+      "title": "Weather_App",
+      "url": "https://weather-gilt-nine-43.vercel.app/",
+      "img": "/images/Weather_App.png",
+      "description": "A real-time weather dashboard that displays current conditions, hourly forecasts, and 7-day outlooks using data from a public weather API with geolocation support.",
+      "tech": ["React", "Node.js", "REST API","Tailwind CSS","Framer Motion"]
+    },
+    {
+      "title": "SkyVoyage",
+      "url": "https://flight-time-psi.vercel.app/",
+      "img": "/images/Sky.png",
+      "description": "A flight time tracking and scheduling tool that helps travelers compare routes, check durations, and plan layovers with an intuitive calendar interface.",
+      "tech": ["React", "Node.js", "REST API","Tailwind CSS","Framer Motion"]
     }
+  
     
   ],
   "Work Experience": [
+    {
+      "role": "Front End Developer",
+      "duration": "  2025",
+      "company": "UMEGS",
+      "AboutCompany": "UMEGS is a technology firm focused on delivering enterprise-grade web solutions and digital transformation services.",
+      "responsibilities": [
+        "Developed responsive, cross-browser compatible web interfaces using React, JavaScript, and modern CSS.",
+        "Collaborated with UX designers to translate wireframes into polished, accessible UI components.",
+        "Integrated REST APIs and optimized front-end performance, achieving a 25% reduction in page load times.",
+        "Mentored junior developers and conducted code reviews to maintain high code quality standards."
+      ],
+      "achievements": [
+        "Delivered 10+ enterprise client projects on time and within scope.",
+        "Introduced reusable component libraries that reduced development time by 30% across teams."
+      ],
+      "description": "Delivered high-quality front-end solutions for enterprise clients, building responsive interfaces with React and modern CSS. Focused on performance optimization, accessibility, and clean component architecture."
+    },
     {
       "role": "Full Stack Developer",
       "duration": "2025 - Present",
@@ -165,6 +219,29 @@
       "readTime": "7 min read",
       "url": "https://dev.to/sheerazpaul"
     }
+  ],
+  "certifications": [
+    {
+      "name": "Full Stack Web Development",
+      "issuer": "Meta (Coursera)",
+      "date": "2025",
+      "url": "#"
+    },
+    {
+      "name": "Python for Everybody",
+      "issuer": "University of Michigan (Coursera)",
+      "date": "2025",
+      "url": "#"
+    }
+  ],
+  "languages": [
+    { "name": "English", "proficiency": "Professional", "level": 85 }
+  ],
+  "interests": [
+    { "name": "Web Development", "icon": "code" },
+    { "name": "UI/UX Design", "icon": "palette" },
+    { "name": "Open Source", "icon": "github" },
+    { "name": "Cloud Computing", "icon": "cloud" }
   ],
   "contact": {
     "email": "sheerazpaulp@gmail.com",
