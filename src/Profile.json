@@ -35,13 +35,6 @@
       "description": "Architected and shipped 5+ production web applications using React, Django, and RESTful APIs. Reduced initial load times by 30% through code splitting and asset optimization."
     }
   ],
-    "education": [
-    {
-      "degree": "ICS",
-      "institute": "Royal College",
-      "duration": "2023 - 2024"
-    }
-  ],
 
   "skills": {
     "frontend": [
@@ -228,7 +221,9 @@
     }
   ],
   "languages": [
-    { "name": "English", "proficiency": "Professional", "level": 85 }
+    { "name": "English", "proficiency": "Professional", "level": 85 },
+    { "name": "Urdu", "proficiency": "Native", "level": 100 },
+    { "name": "Punjabi", "proficiency": "Native", "level": 100 }
   ],
   "interests": [
     { "name": "Web Development", "icon": "code" },

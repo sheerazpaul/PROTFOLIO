@@ -126,7 +126,12 @@ const PageOne = () => {
             {/* Left: Profile Image */}
             <div className="flex justify-center lg:col-span-5">
               <div className="relative group">
-               
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                <img
+                  src={personal.profileImage}
+                  alt={personal.name}
+                  className="relative object-cover w-full h-[400px] md:h-[500px] rounded-2xl border border-border shadow-2xl"
+                />
               </div>
             </div>
 

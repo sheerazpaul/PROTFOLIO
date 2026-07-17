@@ -22,16 +22,12 @@ const Resume = ({ onBack }) => {
     ProjectsLink,
     "Work Experience": workExp,
     languages,
+    education,
   } = profile;
   const projects = ProjectsLink || [];
   const experiences = workExp || [];
-
-  // Add Urdu and Punjabi to languages
-  const updatedLanguages = [
-    ...(languages || []),
-    { name: "Urdu", proficiency: "Native" },
-    { name: "Punjabi", proficiency: "Native" },
-  ];
+  const updatedLanguages = languages || [];
+  const eduList = education || [];
 
   const allSkills = [
     { title: "Frontend", items: skills.frontend },
@@ -172,6 +168,27 @@ const Resume = ({ onBack }) => {
         (exp.achievements || []).forEach((a) => bullet(a, 9, "#333"));
         y += 3;
       });
+
+      // ========== EDUCATION ==========
+      if (eduList && eduList.length > 0) {
+        if (y + 12 > ph - 18) {
+          pdf.addPage();
+          y = mt;
+        }
+        section("Education");
+        eduList.forEach((edu) => {
+          pdf.setFont("helvetica", "bold");
+          pdf.setFontSize(10);
+          pdf.setTextColor(0);
+          pdf.text(edu.degree, ml, y);
+          y += 5.5;
+          pdf.setFont("helvetica", "normal");
+          pdf.setFontSize(9);
+          pdf.setTextColor("#444");
+          pdf.text(`${edu.institute}  |  ${edu.duration}`, ml, y);
+          y += 8;
+        });
+      }
 
       // ========== LANGUAGES ==========
       if (updatedLanguages && updatedLanguages.length) {
@@ -407,6 +424,26 @@ const Resume = ({ onBack }) => {
                   ))}
                 </div>
               </div>
+
+              {/* Education */}
+              {eduList && eduList.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-[10px] font-bold tracking-[2px] uppercase text-gray-700 mb-4">
+                    Education
+                  </h3>
+                  <div className="space-y-4">
+                    {eduList.map((edu, i) => (
+                      <div key={i} className="p-4 border border-gray-200 rounded-xl bg-gray-50/50">
+                        <div className="flex flex-col gap-1 mb-1 sm:flex-row sm:items-start sm:justify-between">
+                          <h4 className="text-sm font-bold text-black">{edu.degree}</h4>
+                          <span className="text-[11px] text-gray-500 shrink-0">{edu.duration}</span>
+                        </div>
+                        <p className="text-xs font-medium text-gray-600">{edu.institute}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Projects */}
               <div>

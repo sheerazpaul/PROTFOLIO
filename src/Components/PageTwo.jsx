@@ -57,23 +57,23 @@ const PageTwo = () => {
                     </div>
                     <h3 className="text-lg font-bold text-text">{group.title}</h3>
                   </div>
-                  <div className="space-y-4">
-                    {group.items.map((skill, i) => (
-                      <div key={i}>
-                        <div className="flex justify-between items-center mb-1.5">
-                          <span className="text-sm font-medium text-text">{skill.name}</span>
-                          <span className="text-xs text-softGray">{skill.level}%</span>
-                        </div>
-                        <div className="w-full h-2 bg-dark/50 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: i * 0.1, ease: "easeOut" }}
-                            className="h-full rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_8px_rgba(78,177,197,0.4)]"
-                          />
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex flex-wrap gap-3">
+                    {group.items.map((skill, i) => {
+                      const Icon = iconMap[skill.icon] || Code;
+                      return (
+                        <motion.div
+                          key={i}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: i * 0.05 }}
+                          className="flex items-center gap-2 px-3.5 py-2 bg-dark/40 border border-border rounded-xl hover:border-primary/50 hover:bg-primary/10 transition-colors shadow-sm group cursor-default"
+                        >
+                          <Icon className="text-primary/70 group-hover:text-primary transition-colors" size={16} />
+                          <span className="text-sm font-medium text-text group-hover:text-white">{skill.name}</span>
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </motion.div>
               ))}
