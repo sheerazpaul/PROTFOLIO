@@ -121,7 +121,7 @@ const Resume = ({ onBack }) => {
       section("Professional Summary");
       writeText(
         "Full Stack Developer with 1+ year of experience architecting and delivering production-grade web applications, " +
-        "backed by 6 years of front-end expertise. Proven ability to build React-driven interfaces, Django-powered backends, " +
+        "backed by one year of front-end expertise. Proven ability to build React-driven interfaces, Django-powered backends, " +
         "and RESTful APIs with a focus on clean architecture, performance optimization, and user-centric design. " +
         "Passionate about shipping scalable digital solutions that solve real-world problems.",
         9.5,
@@ -384,7 +384,7 @@ const Resume = ({ onBack }) => {
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-700">
                   Full Stack Developer with 1+ year of experience architecting and delivering
-                  production-grade web applications, backed by 6 years of front-end expertise.
+                  production-grade web applications, backed by one year of front-end expertise.
                   Proven ability to build React-driven interfaces, Django-powered backends, and
                   RESTful APIs with a focus on clean architecture, performance optimization, and
                   user-centric design. Passionate about shipping scalable digital solutions that
