@@ -17,9 +17,7 @@ const HeroSection = () => {
     >
       <Navbar />
 
-      <h1 className="text-center text-[#F8FAFC] font-black uppercase tracking-tight text-2xl sm:text-3xl mt-4">
-        i love you buggay
-      </h1>
+    
 
       <div className="relative flex flex-col justify-center flex-1">
         <div className="overflow-hidden">
