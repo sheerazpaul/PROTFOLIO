@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, FileText, Download, Github, Linkedin } from "lucide-react";
 import Profile from "../Profile.json";
 
 const PageFour = () => {
-  const { personal, contact, certifications, languages } = Profile;
+  const { contact, certifications } = Profile;
 
   const container = {
     hidden: { opacity: 0 },

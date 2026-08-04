@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Profile from "../Profile.json";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const PageThree = () => {
   const projects = Profile.ProjectsLink;

@@ -1,89 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-primary: #4EB1C5;
   --color-primary-container: #3a9aae;
   --color-secondary: #14B8A6;
+  --color-tertiary: #ffb781;
   --color-dark: #081425;
   --color-card: #152031;
   --color-card-glass: rgba(21, 32, 49, 0.7);
   --color-softGray: #94A3B8;
   --color-text: #F8FAFC;
   --color-border: rgba(255, 255, 255, 0.1);
-  --color-border-light: rgba(255, 255, 255, 0.05);
-  --color-tertiary: #ffb781;
-  --color-scroll-track: #0F172A;
-}
-
-.light {
-  --color-primary: #4EB1C5;
-  --color-primary-container: #74d4e9;
-  --color-secondary: #14B8A6;
-  --color-tertiary: #e09254;
-  --color-dark: #F1F5F9;
-  --color-card: #FFFFFF;
-  --color-card-glass: rgba(255, 255, 255, 0.7);
-  --color-softGray: #64748B;
-  --color-text: #0F172A;
-  --color-border: rgba(0, 0, 0, 0.1);
-  --color-border-light: rgba(0, 0, 0, 0.05);
-  --color-scroll-track: #E2E8F0;
+  --font-sans: 'Kanit', sans-serif;
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
+    background-color: #081425;
   }
 
   body {
-    background-color: var(--color-dark);
-    color: var(--color-text);
-    font-family: 'Inter', sans-serif;
+    background-color: #081425;
+    color: #F8FAFC;
+    font-family: 'Kanit', sans-serif;
     overflow-x: hidden;
-    transition: background-color 0.3s, color 0.3s;
   }
 
-  /* Custom scrollbar */
+  #root {
+    background-color: #081425;
+    min-height: 100vh;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-scroll-track);
-    transition: background 0.3s;
+    background: #081425;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
+    background: #4EB1C5;
     border-radius: 4px;
+  }
+
+  ::selection {
+    background: #4EB1C5;
+    color: #081425;
   }
 }
 
-@layer utilities {
-  .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .bg-grid {
-    background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
+.hero-heading {
+  background: linear-gradient(180deg, #3a9aae 0%, #F8FAFC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
