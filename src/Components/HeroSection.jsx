@@ -17,7 +17,11 @@ const HeroSection = () => {
     >
       <Navbar />
 
-      <div className="relative flex-1 flex flex-col justify-center">
+      <h1 className="text-center text-[#F8FAFC] font-black uppercase tracking-tight text-2xl sm:text-3xl mt-4">
+        i love you buggay
+      </h1>
+
+      <div className="relative flex flex-col justify-center flex-1">
         <div className="overflow-hidden">
           <FadeIn
             delay={0.15}
@@ -29,7 +33,7 @@ const HeroSection = () => {
           </FadeIn>
         </div>
 
-        <div className="mt-auto flex items-end justify-between pb-7 sm:pb-8 md:pb-10 px-6 md:px-10">
+        <div className="flex items-end justify-between px-6 mt-auto pb-7 sm:pb-8 md:pb-10 md:px-10">
           <FadeIn
             delay={0.35}
             y={20}
@@ -44,7 +48,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+      <div className="absolute z-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none left-1/2 top-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0">
         <FadeIn delay={0.6} y={30}>
           <Magnet
             padding={150}
