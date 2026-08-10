@@ -1,105 +1,195 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Sun, Moon, FileText, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { Sun, Moon, Menu, X, FileText, Search } from "lucide-react";
 import { useTheme } from "./ThemeContext";
-import { personal } from "../Profile.json";
+import Profile from "../Profile.json";
 
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const personal = Profile.personal;
+
+  const links = [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects", href: "#projects" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return scrollY.on("change", (y) => setScrolled(y > 24));
+  }, [scrollY]);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMobileOpen(false);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const scrollTo = (href) => {
+    setOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const navItems = ["Skills", "Projects", "Contact"];
+  const openPalette = () => {
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
+  };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-dark/80 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-16">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl font-bold tracking-wider cursor-pointer"
+    <>
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 right-0 z-[90] px-4 sm:px-6"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div
+            className={`mt-4 flex items-center justify-between rounded-2xl px-4 sm:px-6 h-16 transition-all duration-500 ${
+              scrolled ? "glass shadow-lg shadow-black/10" : "border border-transparent"
+            }`}
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{personal.name.charAt(0)}</span>
-            <span className="text-text">{personal.name.slice(1)}</span>
-          </button>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-2.5 cursor-pointer"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary font-display text-sm font-bold text-white shadow-lg shadow-primary/30">
+                {personal.name.charAt(0)}
+              </span>
+              <span className="hidden sm:block font-display text-base font-semibold tracking-tight text-ink">
+                {personal.name}
+              </span>
+            </button>
 
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
+            <nav className="hidden lg:flex items-center gap-1">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(link.href);
+                  }}
+                  className="relative px-4 py-2 text-sm font-medium text-muted rounded-xl transition-colors duration-300 hover:text-ink hover:bg-border"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-1.5">
               <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
-                className="px-4 py-2 text-sm font-medium text-softGray hover:text-text hover:bg-border rounded-lg transition-all duration-300"
+                onClick={openPalette}
+                aria-label="Command palette"
+                className="hidden md:flex items-center gap-2 h-9 px-3 rounded-xl text-muted hover:text-ink hover:bg-border transition-colors cursor-pointer"
               >
-                {item}
+                <Search size={16} />
+                <span className="text-xs">Search</span>
+                <kbd className="px-1.5 py-0.5 text-[10px] glass rounded">⌘K</kbd>
               </button>
-            ))}
-            <div className="w-px h-6 bg-border mx-2" />
-            <button
-              onClick={() => { window.location.hash = "resume"; }}
-              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-softGray hover:text-text hover:bg-border rounded-lg transition-all duration-300"
-            >
-              <FileText size={14} /> Resume
-            </button>
-            <button
-              onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center rounded-lg text-softGray hover:text-text hover:bg-border transition-all duration-300 ml-1"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
-          </div>
-
-          <div className="flex md:hidden items-center gap-2">
-            <button onClick={() => { window.location.hash = "resume"; }} className="p-2 text-softGray hover:text-text">
-              <FileText size={18} />
-            </button>
-            <button onClick={toggleTheme} className="p-2 text-softGray hover:text-text">
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2 text-text">
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+              <button
+                onClick={() => { window.location.hash = "resume"; }}
+                className="hidden sm:flex items-center gap-2 h-9 px-3 rounded-xl text-sm font-medium text-muted hover:text-ink hover:bg-border transition-colors cursor-pointer"
+              >
+                <FileText size={16} /> Resume
+              </button>
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-muted hover:text-ink hover:bg-border transition-colors cursor-pointer"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={theme}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+                  </motion.span>
+                </AnimatePresence>
+              </button>
+              <button
+                onClick={() => setOpen(true)}
+                aria-label="Open menu"
+                className="lg:hidden flex h-9 w-9 items-center justify-center rounded-xl text-ink hover:bg-border transition-colors cursor-pointer"
+              >
+                <Menu size={19} />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.header>
 
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-card border-t border-border"
-        >
-          <div className="px-6 py-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
-                className="block w-full text-left px-3 py-2 text-sm text-softGray hover:text-text hover:bg-border rounded-lg transition-all"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </motion.nav>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-[95] lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
+            <motion.aside
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 320, damping: 34 }}
+              className="absolute top-0 right-0 h-full w-[84%] max-w-sm bg-surface border-l border-border p-7 flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-10">
+                <span className="font-display text-lg font-semibold text-ink">{personal.name}</span>
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl glass text-ink cursor-pointer"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <nav className="flex flex-col gap-1">
+                {links.map((link, i) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i + 0.1 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.href);
+                    }}
+                    className="flex items-center justify-between rounded-xl px-4 py-3.5 text-lg font-display font-medium text-muted hover:text-ink hover:bg-border transition-colors cursor-pointer"
+                  >
+                    <span>0{i + 1} · {link.label}</span>
+                    <span className="text-primary text-sm">→</span>
+                  </motion.a>
+                ))}
+              </nav>
+
+              <div className="mt-auto space-y-3 pt-8">
+                <button
+                  onClick={() => { window.location.hash = "resume"; }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl gradient-border py-3.5 font-display text-sm font-semibold text-ink cursor-pointer"
+                >
+                  <FileText size={16} /> View Resume
+                </button>
+                <p className="text-center text-xs text-muted/70">{personal.email}</p>
+              </div>
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
-}
+};
 
 export default Navbar;
